@@ -8,7 +8,7 @@ import Input from '../../common/Input/Input';
 import Textarea from '../../common/Textarea/Textarea';
 import formatDuration from '../../helpers/pipeDuration';
 import generateCurrentDate from '../../helpers/dateGenerator';
-import { mockedAuthorsList, mockedCoursesList } from '../../constants';
+import { buttonText, inputText, mockedAuthorsList, mockedCoursesList } from '../../constants';
 
 export default function CreateCourse(props) {
   const [selectedAuthorsID, setSelectedAuthorsID] = useState([]);
@@ -102,35 +102,38 @@ export default function CreateCourse(props) {
     <div className="newCourse">
      <div className="courseDetails">
        <div className="courseDetailsTop">
-          <Input type="text" onChange={handleTitleChange} value={title} labelText="Title" placeholderText="Enter title..." id="courseTitle"/>
-          <Button buttonText="Create course" onClick={handleCreateCourse}/>
+          <Input type="text" onChange={handleTitleChange} value={title} labelText={inputText.courseTitle.label} placeholderText={inputText.courseTitle.placeholder} id="courseTitle"/>
+          <Button buttonText={buttonText.createCourse} onClick={handleCreateCourse}/>
        </div>
        <div className="courseDetailsBottom">
-         <Textarea onChange={handleDescriptionChange} value={description} labelText="Description" placeholderText="Enter description"/>
+         <Textarea onChange={handleDescriptionChange} value={description} labelText={inputText.description.label} placeholderText={inputText.description.placeholder} id="courseDescription"/>
        </div>
      </div>
      <div className="authorDetails">
        <div className="authorDetailsLeft">
           <div className="createAuthor">
             <h3>Add author</h3>
-            <Input type="text" onChange={handleAuthorNameChange} value={authorName} labelText="Author name" placeholderText="Enter author name..."/>
-            <Button buttonText="Create author" onClick={handleCreateAuthor}/>
+            <Input type="text" onChange={handleAuthorNameChange} value={authorName} labelText={inputText.authorName.label} placeholderText={inputText.authorName.placeholder} id="createAuthor"/>
+            <Button buttonText={buttonText.createAuthor} onClick={handleCreateAuthor}/>
           </div>
           <div className="duration">
             <h3>Duration</h3>
-            <Input type="number" onChange={handleDurationChange} value={duration} labelText="Duration" placeholderText="Enter duration in minutes..."/>
+            <Input type="number" onChange={handleDurationChange} value={duration} labelText={inputText.duration.label} placeholderText={inputText.duration.placeholder} id="timeDuration"/>
             <span>Duration: <b>{formatDuration(duration)}</b> hours</span>
           </div>
        </div>
        <div className="authorDetailsRight">
          <h3>Authors</h3>
+         {selectedAuthorsID.length === mockedAuthorsList.length &&
+          <span>Author list empty</span>
+         }
          {
            mockedAuthorsList.map(author => {
              if(selectedAuthorsID.indexOf(author.id) === -1){
                return (
                  <div key={author.id} authorid={author.id} className="author">
                    <span>{author.name}</span>
-                   <Button buttonText="Add author" onClick={handleAddAuthor}/>
+                   <Button buttonText={buttonText.addAuthor} onClick={handleAddAuthor}/>
                  </div>
                );
              }

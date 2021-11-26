@@ -49,3 +49,35 @@ export const mockedAuthorsList = [
   }
  ]
  
+ export const buttonText = {
+   logout: 'Logout',
+   createCourse: 'Create course',
+   addAuthor: 'Add author',
+   createAuthor: 'Create author',
+   showCourse: 'Show course',
+   search: 'Search',
+   addNewCourse: 'Add new course'
+ }
+
+ export const inputText = {
+   search: {
+     placeholder: 'Enter course name or id...',
+     label: null
+   },
+   courseTitle: {
+     placeholder: 'Enter title...',
+     label: 'Title'
+   },
+   authorName: {
+     placeholder: 'Enter author name...',
+     label: 'Author name'
+   },
+   duration: {
+     placeholder: 'Enter duration in minutes...',
+     label: 'Duration'
+   },
+   description: {
+     placeholder: 'Enter description',
+     label: 'Description'
+   }
+ }

@@ -5,7 +5,7 @@ import CourseCard from "./components/CourseCard/CourseCard";
 import SearchBar from './components/SearchBar/SearchBar';
 import Button from '../../common/Button/Button';
 import formatDuration from '../../helpers/pipeDuration';
-import { mockedAuthorsList, mockedCoursesList } from '../../constants';
+import { buttonText, mockedAuthorsList, mockedCoursesList } from '../../constants';
 
 export default function Courses(props) {
   const [searchPhrase, setSearchPhrase] = useState('');
@@ -30,7 +30,7 @@ export default function Courses(props) {
           <SearchBar inputValue={inputValue} onSearch={search} onChange={handleSearchInput}/>
         </div>
         <div className="newCourseContainer">
-          <Button buttonText="Add new course" onClick={props.newCourseHandler}/>
+          <Button buttonText={buttonText.addNewCourse} onClick={props.newCourseHandler}/>
         </div>
 
       </section>

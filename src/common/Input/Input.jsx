@@ -1,7 +1,6 @@
 import './Input.css';
 
 export default function Input(props) {
-
   return (
     <div className="inputContainer">
         {props.labelText && <label htmlFor={props.id}>{props.labelText}</label>}
