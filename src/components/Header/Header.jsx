@@ -6,8 +6,6 @@ import './Header.css';
 
 export default function Header() {
 
-  const buttonHandler = (e) => {}
-
   return (
     <header>
       <div className="logo">
@@ -15,8 +13,7 @@ export default function Header() {
       </div>
       <div className="accountDetails">
         <span>Dave</span>
-        <Button buttonText={buttonText.logout}
-                onClick={buttonHandler}/>
+        <Button buttonText={buttonText.logout} disabled={true}/>
       </div>
     </header>
   );

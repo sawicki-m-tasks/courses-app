@@ -20,7 +20,7 @@ export default function CourseCard(props) {
         <p>
           <b>Created: </b> {props.creationDate.replaceAll('/', '.')}
         </p>
-        <Button buttonText={buttonText.showCourse} onClick={(e) => e.preventDefault()}/>
+        <Button buttonText={buttonText.showCourse} disabled={true}/>
       </div>
     </div>
   )
