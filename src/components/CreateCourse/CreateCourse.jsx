@@ -17,9 +17,8 @@ export default function CreateCourse(props) {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
 
-  const handleAddAuthor = (e) => {
-    const selectedID = e.target.parentElement.getAttribute('authorid');
-    setSelectedAuthorsID([...selectedAuthorsID, selectedID]);
+  const handleAddAuthor = (id) => {
+    setSelectedAuthorsID([...selectedAuthorsID, id]);
   }
 
   const handleDeleteAuthor = (e) => {
@@ -133,7 +132,7 @@ export default function CreateCourse(props) {
                return (
                  <div key={author.id} authorid={author.id} className="author">
                    <span>{author.name}</span>
-                   <Button buttonText={buttonText.addAuthor} onClick={handleAddAuthor}/>
+                   <Button buttonText={buttonText.addAuthor} onClick={e => handleAddAuthor(author.id)}/>
                  </div>
                );
              }
